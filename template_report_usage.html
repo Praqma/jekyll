@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title>Static Analysis Report</title>
+</head>
+	<body>
+		<h3>Unused Resource(s):</h3>
+		<ul>
+		{%for unused in unused%}
+			<li>{{unused[0]}}</li>
+		{% endfor %}
+		</ul>
+	</body>
+</html>

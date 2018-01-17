@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>Static Analysis Report</title>
+	</head>
+	<body>
+		<h3>Duplicated Entry/Entries:</h3>
+		{%for duplicated_file in duplicates%}
+		<ul>
+		{%for s in duplicated_file[1]%}
+			<li>{{s}}</li>
+		{% endfor %}
+		</ul>
+		{% endfor %}
+	</body>
+</html>

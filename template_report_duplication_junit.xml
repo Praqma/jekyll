@@ -1,0 +1,12 @@
+<testsuite tests="{{duplicates | size}}">
+	<testcase classname="net.praqma.DefaultPlaceholder" name="EverythingOK"/>
+	{%for duplicate_file in duplicates%}
+  <testcase classname="net.praqma.DuplicateEntry" name="Duplicate_{{duplicate_file[0]}}">
+      <failure type="DuplicateFile">
+      	Duplicate Files:
+      	{%for duplicate in duplicate_file[1]%}{{duplicate}}
+      	{%endfor%}
+      </failure>
+  </testcase>
+{%endfor%}
+</testsuite>

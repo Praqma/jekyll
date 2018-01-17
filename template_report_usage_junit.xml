@@ -1,0 +1,8 @@
+<testsuite tests="{{unused | size}}">
+	<testcase classname="net.praqma.DefaultPlaceholder" name="EverythingOK"/>
+{%for unused in unused%}
+  <testcase classname="net.praqma.UnusedFile" name="{{unused[0] | split: ":" | last | replace:'/','_'}}">
+      <failure type="UnusedFile">{{unused[0] | split: ":" | last}}</failure>
+  </testcase>
+{%endfor%}
+</testsuite>
