@@ -22,7 +22,7 @@ This repository aims to provide a Docker image that resembles GitHub Pages. We e
 
 Since then, we have moved our website to the cloud....
 
-## Prerequisite
+## Prerequisites
 
 
 ### Get the Website
