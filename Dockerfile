@@ -24,8 +24,8 @@ COPY template_report_duplication_junit.xml /opt/static-analysis
 COPY template_report_usage.html /opt/static-analysis
 COPY template_report_usage_junit.xml /opt/static-analysis
 
-RUN chmod +x /opt/static-analysis/analyze.rb
-RUN ln -s /opt/static-analysis/analyze.rb /usr/bin/analyze
+RUN chmod +x /opt/static-analysis/analyze.rb && \
+  ln -s /opt/static-analysis/analyze.rb /usr/bin/analyze
 
 # 3. Install Docker client.
 
@@ -51,13 +51,15 @@ RUN set -x && \
 
 # 5. Install test scripts for Docker Cloud.
 
+RUN mkdir -p /opt/docker-autotest
+
 COPY run_tests_echo.sh /opt/docker-autotest
-RUN chmod +x /opt/docker-autotest/run_tests_echo.sh
-RUN ln -s /opt/docker-autotest/run_tests_echo.sh /usr/bin/run_tests_echo
+RUN chmod +x /opt/docker-autotest/run_tests_echo.sh && \
+  ln -s /opt/docker-autotest/run_tests_echo.sh /usr/bin/run_tests_echo
 
 COPY run_tests.sh /opt/docker-autotest
-RUN chmod +x /opt/docker-autotest/run_tests.sh
-RUN ln -s /opt/docker-autotest/run_tests.sh /usr/bin/run_tests
+RUN chmod +x /opt/docker-autotest/run_tests.sh && \
+  ln -s /opt/docker-autotest/run_tests.sh /usr/bin/run_tests
 
 # The EXPOSE instruction does not actually publish the port.
 # https://docs.docker.com/engine/reference/builder/#expose
