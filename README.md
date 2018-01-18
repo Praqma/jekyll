@@ -6,7 +6,9 @@ Docker built Jekyll image for building Praqma's website.
 
 See [jekyll](https://github.com/praqma/jekyll) repository on GitHub.
 
-See [jekyll](https://hub.docker.com/r/praqma/jekyll/) image on Docker Hub.
+See [jekyll](https://hub.docker.com/r/praqma/jekyll/) repository on Docker Hub.
+
+See [jekyll](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/) repository on Docker Cloud.
 
 ## History
 
@@ -24,7 +26,6 @@ Since then, we have moved our website to the cloud....
 
 ## Prerequisites
 
-
 ### Get the Website
 
 Get or clone the source of a Jekyll based website at the same parent directory level of this repository.
@@ -40,7 +41,7 @@ $ tree -d -L 1
 
 Build or pull the image.
 
-Build locally (or use [docker_build.sh](docker_build.sh) script):
+Build locally (or use [docker_build.sh](https://github.com/Praqma/jekyll/blob/master/docker_build.sh) script):
 
 ```
 docker build --tag praqma/jekyll:latest .
@@ -58,11 +59,11 @@ docker run \
   jekyll --version
 ```
 
-Use [docker_run_jekyll_version.sh](docker_run_jekyll_version.sh) script to show versions of Jekyll, Ruby and its gems.
+Use [docker_run_jekyll_version.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_version.sh) script to show versions of Jekyll, Ruby and its gems.
 
 ### Serve with Jekyll
 
-Mount the website's source directory into the container and serve it using `jekyll` gem or use [docker_run_jekyll_serve.sh](docker_run_jekyll_serve.sh) script.
+Mount the website's source directory into the container and serve it using `jekyll` gem or use [docker_run_jekyll_serve.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_serve.sh) script.
 
 ```
 docker run \
@@ -87,7 +88,7 @@ Run locally directly from this repository:
 ruby analyze.rb --source $(pwd)/../praqma.com
 ```
 
-Run from Docker container (or use [docker_run_analyze.sh](docker_run_analyze.sh) script):
+Run from Docker container (or use [docker_run_analyze.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_analyze.sh) script):
 
 ```
 docker run \
@@ -103,4 +104,4 @@ docker run \
 
 Both of these commands will produce two reports in the current working directory.
 
-The complete list of available analyze options is available with `ruby analyze.rb --help` command.
+Use `ruby analyze.rb --help` command to view the complete list of available analyze options.
