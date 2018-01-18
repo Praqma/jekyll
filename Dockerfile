@@ -49,6 +49,16 @@ RUN set -x && \
   pip install --upgrade pip && \
   pip install awscli==1.11.18
 
+# 5. Install test scripts for Docker Cloud.
+
+COPY run_tests_echo.sh /opt/docker-autotest
+RUN chmod +x /opt/docker-autotest/run_tests_echo.sh
+RUN ln -s /opt/docker-autotest/run_tests_echo.sh /usr/bin/run_tests_echo
+
+COPY run_tests.sh /opt/docker-autotest
+RUN chmod +x /opt/docker-autotest/run_tests.sh
+RUN ln -s /opt/docker-autotest/run_tests.sh /usr/bin/run_tests
+
 # The EXPOSE instruction does not actually publish the port.
 # https://docs.docker.com/engine/reference/builder/#expose
 # It functions as a type of documentation between the person who builds
