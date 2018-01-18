@@ -1,6 +1,24 @@
 # Jekyll
 
+[![GitHub Watchers](https://img.shields.io/github/watchers/praqma/jekyll.svg)](https://github.com/praqma/jekyll/watchers)
+[![GitHub Stars](https://img.shields.io/github/stars/praqma/jekyll.svg)](https://github.com/praqma/jekyll/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/praqma/jekyll.svg)](https://github.com/praqma/jekyll/network)
+[![GitHub Issues](https://img.shields.io/github/issues/praqma/jekyll.svg)](https://github.com/praqma/jekyll/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/praqma/jekyll.svg)](https://github.com/praqma/jekyll/pulls)
+[![GitHub Tags](https://img.shields.io/github/tag/praqma/jekyll.svg)](https://github.com/praqma/jekyll/tags)
+[![GitHub Releases](https://img.shields.io/github/release/praqma/jekyll.svg)](https://github.com/praqma/jekyll/releases)
+[![GitHub Contributors](https://img.shields.io/github/contributors/praqma/jekyll.svg)](https://github.com/praqma/jekyll/graphs/contributors)
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/praqma/jekyll/blob/master/LICENSE)
+
+[![Docker Stars](https://img.shields.io/docker/stars/praqma/jekyll.svg)](https://hub.docker.com/r/praqma/jekyll/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/praqma/jekyll.svg)](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/general)
+[![Docker Automated Build](https://img.shields.io/docker/automated/praqma/jekyll.svg)](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/builds)
+[![Docker Build Status](https://img.shields.io/docker/build/praqma/jekyll.svg)](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/builds)
+
+[![GitHub Release Date](https://img.shields.io/github/release-date/praqma/jekyll.svg)](https://github.com/Praqma/jekyll/releases)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/praqma/jekyll.svg)](https://github.com/Praqma/jekyll/commits/master)
+[![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/praqma/jekyll.svg)](https://github.com/Praqma/jekyll)
+[![GitHub Repository Size in Bytes](https://img.shields.io/github/repo-size/praqma/jekyll.svg)](https://github.com/Praqma/jekyll)
 
 Docker built Jekyll image for building Praqma's website.
 
