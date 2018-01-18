@@ -6,8 +6,7 @@
 # https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
 [ "$DEBUG" == 'true' ] && set -x
 
-CURRENT_PWD=${PWD}
-JEKYLL_SITE_DIR=$(PWD)/website
+JEKYLL_SITE_DIR=/website
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -15,7 +14,7 @@ ORANGE='\033[0;33m'
 BLUE='\033[0;34m'
 COLORLESS='\033[0m'
 
-echo "${BLUE}Running Tests on Docker Cloud....${COLORLESS}"
+echo -e "${BLUE}Running Tests on Docker Cloud....${COLORLESS}"
 
 # Environment Variables for Building and Testing
 # https://docs.docker.com/docker-cloud/builds/advanced/#environment-variables-for-building-and-testing
@@ -38,7 +37,7 @@ bundle env
 
 echo -e "${ORANGE}Making new website directory....${COLORLESS}"
 
-mkdir $JEKYLL_SITE_DIR && cd $JEKYLL_SITE_DIR
+mkdir -v $JEKYLL_SITE_DIR && cd $JEKYLL_SITE_DIR
 
 echo -e "${ORANGE}Create website....${COLORLESS}"
 
@@ -57,7 +56,7 @@ echo -e "${ORANGE}Analyze website....${COLORLESS}"
 analyze \
   --source ${JEKYLL_SITE_DIR} \
   --copies /opt/static-analysis/template_report_duplication.html \
-  --unused /opt/static-analysis/template_report_usage.html \
+  --unused /opt/static-analysis/template_report_usage.html
 
 if [[ -f analyzed_report_duplication.xml && -f analyzed_report_unused.xml ]]; then
   cat analyzed_report_*
