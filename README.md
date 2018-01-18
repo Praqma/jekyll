@@ -11,9 +11,9 @@
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/praqma/jekyll/blob/master/LICENSE)
 
 [![Docker Stars](https://img.shields.io/docker/stars/praqma/jekyll.svg)](https://hub.docker.com/r/praqma/jekyll/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/praqma/jekyll.svg)](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/general)
-[![Docker Automated Build](https://img.shields.io/docker/automated/praqma/jekyll.svg)](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/builds)
-[![Docker Build Status](https://img.shields.io/docker/build/praqma/jekyll.svg)](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/builds)
+[![Docker Pulls](https://img.shields.io/docker/pulls/praqma/jekyll.svg)](https://hub.docker.com/r/praqma/jekyll/)
+[![Docker Automated Build](https://img.shields.io/docker/automated/praqma/jekyll.svg)](https://hub.docker.com/r/praqma/jekyll/builds/)
+[![Docker Build Status](https://img.shields.io/docker/build/praqma/jekyll.svg)](https://hub.docker.com/r/praqma/jekyll/builds/)
 
 [![GitHub Release Date](https://img.shields.io/github/release-date/praqma/jekyll.svg)](https://github.com/Praqma/jekyll/releases)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/praqma/jekyll.svg)](https://github.com/Praqma/jekyll/commits/master)
