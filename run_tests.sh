@@ -29,30 +29,30 @@ echo "\$IMAGE_NAME: ${IMAGE_NAME}"
 
 echo -e "${ORANGE}Tests initiated.${COLORLESS}"
 
-echo -e "${BLUE}Show versions....${COLORLESS}"
+echo -e "${ORANGE}Show versions....${COLORLESS}"
 
 jekyll --version && \
 ruby --version && \
 gem list && \
 bundle env
 
-echo -e "${BLUE}Making new website directory....${COLORLESS}"
+echo -e "${ORANGE}Making new website directory....${COLORLESS}"
 
 mkdir $JEKYLL_SITE_DIR && cd $JEKYLL_SITE_DIR
 
-echo -e "${BLUE}Create website....${COLORLESS}"
+echo -e "${ORANGE}Create website....${COLORLESS}"
 
 jekyll new .
 
-echo -e "${BLUE}Build website....${COLORLESS}"
+echo -e "${ORANGE}Build website....${COLORLESS}"
 
 jekyll build
 
-echo -e "${BLUE}Show analyze option....${COLORLESS}"
+echo -e "${ORANGE}Show analyze option....${COLORLESS}"
 
 analyze --help
 
-echo -e "${BLUE}Analyze website....${COLORLESS}"
+echo -e "${ORANGE}Analyze website....${COLORLESS}"
 
 analyze \
   --source ${JEKYLL_SITE_DIR} \
