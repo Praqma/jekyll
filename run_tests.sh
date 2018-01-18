@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
-# Automated Tests on Docker Cloud
-# Script can be used locally. BEWARE that $JEKYLL_SITE_DIR will be PURGED!
+# Automated Tests to be run with Docker Cloud
 
 # The Set Builtin
 # https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
 [ "$DEBUG" == 'true' ] && set -x
 
-echo "Running Tests on Docker Cloud...."
-
-source .environment
+CURRENT_PWD=${PWD}
+JEKYLL_SITE_DIR=$(PWD)/website
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -17,92 +15,55 @@ ORANGE='\033[0;33m'
 BLUE='\033[0;34m'
 COLORLESS='\033[0m'
 
+echo "${BLUE}Running Tests on Docker Cloud....${COLORLESS}"
+
+# Environment Variables for Building and Testing
+# https://docs.docker.com/docker-cloud/builds/advanced/#environment-variables-for-building-and-testing
+
+echo "\$SOURCE_BRANCH: ${SOURCE_BRANCH}"
+echo "\$SOURCE_COMMIT: ${SOURCE_COMMIT}"
+echo "\$COMMIT_MSG: ${COMMIT_MSG}"
+echo "\$DOCKER_REPO: ${DOCKER_REPO}"
+echo "\$CACHE_TAG: ${CACHE_TAG}"
+echo "\$IMAGE_NAME: ${IMAGE_NAME}"
+
 echo -e "${ORANGE}Tests initiated.${COLORLESS}"
 
-echo -e "${BLUE}Build Docker image....${COLORLESS}"
+echo -e "${ORANGE}Show versions....${COLORLESS}"
 
-echo $DOCKER_IMAGE_NAME_AUTOTEST
+jekyll --version && \
+ruby --version && \
+gem list && \
+bundle env
 
-docker build \
-  --tag $DOCKER_IMAGE_NAME_AUTOTEST \
-  --file Dockerfile \
-  .
+echo -e "${ORANGE}Making new website directory....${COLORLESS}"
 
-echo -e "${BLUE}Switching to \$JEKYLL_SITE_DIR ${JEKYLL_SITE_DIR}....${COLORLESS}"
+mkdir $JEKYLL_SITE_DIR && cd $JEKYLL_SITE_DIR
 
-CURRENT_PWD=${PWD}
+echo -e "${ORANGE}Create website....${COLORLESS}"
 
-if [ -d "${JEKYLL_SITE_DIR}" ]; then
-  # Control will enter here if $JEKYLL_SITE_DIR exists.
-  echo -e "The ${BLUE}\$JEKYLL_SITE_DIR${COLORLESS} (${JEKYLL_SITE_DIR}) ${ORANGE}already${COLORLESS} exists."
+jekyll new .
+
+echo -e "${ORANGE}Build website....${COLORLESS}"
+
+jekyll build
+
+echo -e "${ORANGE}Show analyze option....${COLORLESS}"
+
+analyze --help
+
+echo -e "${ORANGE}Analyze website....${COLORLESS}"
+
+analyze \
+  --source ${JEKYLL_SITE_DIR} \
+  --copies /opt/static-analysis/template_report_duplication.html \
+  --unused /opt/static-analysis/template_report_usage.html \
+
+if [[ -f analyzed_report_duplication.xml && -f analyzed_report_unused.xml ]]; then
+  cat analyzed_report_*
+  exit 0
 else
-  # Control will enter here if $JEKYLL_SITE_DIR does not exist.
-  echo -e "The ${BLUE}\$JEKYLL_SITE_DIR${COLORLESS} (${JEKYLL_SITE_DIR}) does ${GREEN}not${COLORLESS} exist."
+  exit 42
 fi
-
-echo -e "${BLUE}Show versions....${COLORLESS}"
-
-docker run \
-  --rm \
-  --tty \
-  $DOCKER_IMAGE_NAME_AUTOTEST \
-  bash -c " \
-    jekyll --version && \
-    ruby --version && \
-    gem list \
-    "
-
-echo -e "${BLUE}Create website....${COLORLESS}"
-
-docker run \
-  --rm \
-  --tty \
-  --volume $JEKYLL_SITE_DIR:/website:rw \
-  --workdir /website \
-  $DOCKER_IMAGE_NAME_AUTOTEST \
-  bash -c " \
-    jekyll new . \
-    "
-
-echo -e "${BLUE}Build website....${COLORLESS}"
-
-docker run \
-  --interactive \
-  --rm \
-  --tty \
-  --volume $JEKYLL_SITE_DIR:/website:rw \
-  --workdir /website \
-  $DOCKER_IMAGE_NAME_AUTOTEST \
-  jekyll build
-
-echo -e "${BLUE}Show analyze option....${COLORLESS}"
-
-docker run \
-  --rm \
-  --tty \
-  $DOCKER_IMAGE_NAME_AUTOTEST \
-  analyze --help
-
-echo -e "${BLUE}Analyze website....${COLORLESS}"
-
-docker run \
-  --rm \
-  --tty \
-  --volume $JEKYLL_SITE_DIR:/website:rw \
-  --workdir /website \
-  $DOCKER_IMAGE_NAME_AUTOTEST \
-  bash -c " \
-    analyze \
-      --source /website \
-      --copies /opt/static-analysis/template_report_duplication.html \
-      --unused /opt/static-analysis/template_report_usage.html \
-      && \
-      if [[ -f analyzed_report_duplication.xml && -f analyzed_report_unused.xml ]]; then
-        cat analyzed_report_*
-        exit 0
-      else
-        exit 42
-      fi
-    "
 
 echo -e "${ORANGE}Tests completed.${COLORLESS}"
