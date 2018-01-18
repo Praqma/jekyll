@@ -49,7 +49,8 @@ docker run \
   bash -c " \
     jekyll --version && \
     ruby --version && \
-    gem list \
+    gem list && \
+    bundle env
     "
 
 echo -e "${BLUE}Create website....${COLORLESS}"
