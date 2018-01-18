@@ -9,7 +9,7 @@ sut:
     - DOCKER_REPO
     - CACHE_TAG
     - IMAGE_NAME
-  command: run_tests_echo.sh
+  command: ${PWD}/run_tests_echo.sh
 # sut:
 #   build: .
 #   # Environment Variables for Building and Testing
