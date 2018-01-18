@@ -9,13 +9,23 @@
 CURRENT_PWD=${PWD}
 JEKYLL_SITE_DIR=$(PWD)/website
 
-echo "Running Tests on Docker Cloud...."
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
 BLUE='\033[0;34m'
 COLORLESS='\033[0m'
+
+echo "${BLUE}Running Tests on Docker Cloud....${COLORLESS}"
+
+# Environment Variables for Building and Testing
+# https://docs.docker.com/docker-cloud/builds/advanced/#environment-variables-for-building-and-testing
+
+echo "\$SOURCE_BRANCH: ${SOURCE_BRANCH}"
+echo "\$SOURCE_COMMIT: ${SOURCE_COMMIT}"
+echo "\$COMMIT_MSG: ${COMMIT_MSG}"
+echo "\$DOCKER_REPO: ${DOCKER_REPO}"
+echo "\$CACHE_TAG: ${CACHE_TAG}"
+echo "\$IMAGE_NAME: ${IMAGE_NAME}"
 
 echo -e "${ORANGE}Tests initiated.${COLORLESS}"
 
