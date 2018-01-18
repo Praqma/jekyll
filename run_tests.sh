@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Automated Tests to be run with Docker Cloud
+# Automate Tests on Docker Cloud
 
 # The Set Builtin
 # https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
