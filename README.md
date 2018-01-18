@@ -28,7 +28,9 @@ Since then, we have moved our website to the cloud....
 
 ### Get the Website
 
-Get or clone the source of a Jekyll based website at the same parent directory level of this repository.
+Have a Jekyll based website located at the same parent directory level of this repository.
+
+Using `praqma.com` directory as an example. You should have similar directory structure shown below.
 
 ```
 $ tree -d -L 1
@@ -39,23 +41,38 @@ $ tree -d -L 1
 
 ### Get the Image
 
-Build or pull the image.
+Pull the image from Docker.
 
-Build locally (or use [docker_build.sh](https://github.com/Praqma/jekyll/blob/master/docker_build.sh) script):
+```
+docker pull praqma/jekyll:latest
+```
+
+As an alternative, build the image locally. Build locally (or use [docker_build.sh](https://github.com/Praqma/jekyll/blob/master/docker_build.sh) script):
 
 ```
 docker build --tag praqma/jekyll:latest .
 ```
 
+### Use Scripts Locally
+
+Scripts source [.environment](https://github.com/Praqma/jekyll/blob/master/.environment) file to use its default environment variables.
+
+Modify local `.environment` file if `JEKYLL_SITE_DIR` environment variable should be different.
+
+Optionally, set `DEBUG=1` in terminal before using the scripts if commands to be displayed prior to execution.
+
 ## Getting Started
+
 ### Check the Versions
 
 Check the version of `jekyll` gem:
 
 ```
+source .environment; \
 docker run \
   --rm \
-  --tty praqma/jekyll:latest \
+  --tty \
+  $DOCKER_IMAGE_NAME_LATEST \
   jekyll --version
 ```
 
@@ -66,13 +83,15 @@ Use [docker_run_jekyll_version.sh](https://github.com/Praqma/jekyll/blob/master/
 Mount the website's source directory into the container and serve it using `jekyll` gem or use [docker_run_jekyll_serve.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_serve.sh) script.
 
 ```
+source .environment; \
 docker run \
   --interactive \
+  --rm \
   --tty \
-  --volume $(pwd)/../praqma.com:/website \
+  --volume $JEKYLL_SITE_DIR:/website:rw \
   --workdir /website \
   --publish 4444:4000 \
-  praqma/jekyll:latest \
+  $DOCKER_IMAGE_NAME_LATEST \
   jekyll serve --watch --host 0.0.0.0
 ```
 
@@ -85,21 +104,24 @@ The image also analyze the website for duplicated and unused resources. It gener
 Run locally directly from this repository:
 
 ```
-ruby analyze.rb --source $(pwd)/../praqma.com
+source .environment; \
+ruby analyze.rb --source $JEKYLL_SITE_DIR
 ```
 
 Run from Docker container (or use [docker_run_analyze.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_analyze.sh) script):
 
 ```
+source .environment; \
 docker run \
-  --rm \
-  --volume $(pwd)/../praqma.com:/website:rw \
-  --workdir /website \
-  --tty praqma/jekyll:latest \
-  analyze \
-	--source /website \
-	--copies /opt/static-analysis/template_report_duplication.html \
-	--unused /opt/static-analysis/template_report_usage.html
+--rm \
+--tty \
+--volume $JEKYLL_SITE_DIR:/website:rw \
+--workdir /website \
+$DOCKER_IMAGE_NAME_LATEST \
+analyze \
+  --source /website \
+  --copies /opt/static-analysis/template_report_duplication.html \
+  --unused /opt/static-analysis/template_report_usage.html
 ```
 
 Both of these commands will produce two reports in the current working directory.

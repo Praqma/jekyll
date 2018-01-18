@@ -1,0 +1,24 @@
+sut:
+  build: .
+  # Environment Variables for Building and Testing
+  # https://docs.docker.com/docker-cloud/builds/advanced/#environment-variables-for-building-and-testing
+  environment:
+    - SOURCE_BRANCH
+    - SOURCE_COMMIT
+    - COMMIT_MSG
+    - DOCKER_REPO
+    - CACHE_TAG
+    - IMAGE_NAME
+  command: run_tests_echo.sh
+sut:
+  build: .
+  # Environment Variables for Building and Testing
+  # https://docs.docker.com/docker-cloud/builds/advanced/#environment-variables-for-building-and-testing
+  environment:
+    - SOURCE_BRANCH
+    - SOURCE_COMMIT
+    - COMMIT_MSG
+    - DOCKER_REPO
+    - CACHE_TAG
+    - IMAGE_NAME
+  command: run_tests.sh
