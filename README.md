@@ -28,7 +28,7 @@ Since then, we have moved our website to the cloud....
 
 ### Get the Website
 
-Have a Jekyll based website located at the same parent directory level of this repository.
+Clone a Jekyll based website from the Internet at the same parent directory level of this repository.
 
 Using `praqma.com` directory as an example. You should have similar directory structure shown below.
 
@@ -38,6 +38,8 @@ $ tree -d -L 1
 ├── jekyll
 └── praqma.com
 ```
+
+To create new Jekyll based website, use [docker_run_jekyll_new.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_new.sh) script.
 
 ### Get the Image
 
@@ -57,7 +59,7 @@ docker build --tag praqma/jekyll:latest .
 
 Scripts source [.environment](https://github.com/Praqma/jekyll/blob/master/.environment) file to use its default environment variables.
 
-Modify local `.environment` file if `JEKYLL_SITE_DIR` environment variable should be different.
+Modify local `.environment` file if its environment variables should be different.
 
 Optionally, set `DEBUG=1` in terminal before using the scripts if commands to be displayed prior to execution.
 
