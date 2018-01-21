@@ -9,6 +9,7 @@ source .environment
 docker run \
   --rm \
   --tty \
+  --user $(id -u):$(id -g) \
   $DOCKER_IMAGE_NAME_LATEST \
   bash -c " \
     jekyll --version && \

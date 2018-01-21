@@ -9,6 +9,7 @@ source .environment
 docker run \
   --rm \
   --tty \
+  --user $(id -u):$(id -g) \
   --volume $JEKYLL_SITE_DIR:/website:rw \
   --workdir /website \
   $DOCKER_IMAGE_NAME_LATEST \

@@ -10,6 +10,7 @@ docker run \
   --interactive \
   --rm \
   --tty \
+  --user $(id -u):$(id -g) \
   --volume $JEKYLL_SITE_DIR:/website:rw \
   --workdir /website \
   --publish 4444:4000 \
