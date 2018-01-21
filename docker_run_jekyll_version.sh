@@ -7,6 +7,7 @@
 docker run \
   --rm \
   --tty \
+  --user $(id -u):$(id -g) \
   $DOCKER_IMAGE_NAME \
   bash -c " \
     jekyll --version && \
