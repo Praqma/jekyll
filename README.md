@@ -47,21 +47,6 @@ Since then, we have moved our website to the cloud....
 
 ## Prerequisites
 
-### Get the Website
-
-Clone a Jekyll based website from the Internet at the same parent directory level of this repository.
-
-Using `praqma.com` directory as an example. You should have similar directory structure shown below.
-
-```
-$ tree -d -L 1
-.
-├── jekyll
-└── praqma.com
-```
-
-To create new Jekyll based website, use [docker_run_jekyll_new.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_new.sh) script.
-
 ### Setup Environment Variables
 
 Setup your environment variables before using the scripts. Verify your environment variables were setup properly.
@@ -117,6 +102,27 @@ Scripts:
 * [docker_build.cmd](https://github.com/Praqma/jekyll/blob/master/docker_build.cmd)
 * [docker_build.ps1](https://github.com/Praqma/jekyll/blob/master/docker_build.ps1)
 * [docker_build.sh](https://github.com/Praqma/jekyll/blob/master/docker_build.sh)
+
+### Get the Website
+
+Clone a Jekyll based website from the Internet at the same parent directory level of this repository.
+
+Using `praqma.com` directory as an example. You should have similar directory structure shown below.
+
+```
+$ tree -d -L 1
+.
+├── jekyll
+└── praqma.com
+```
+
+As an alternative, create a new Jekyll based website locally.
+
+Scripts:
+
+* [docker_run_jekyll_new.cmd](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_new.cmd)
+* [docker_run_jekyll_new.ps1](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_new.ps1)
+* [docker_run_jekyll_new.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_new.sh)
 
 ## Getting Started
 
