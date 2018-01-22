@@ -61,49 +61,40 @@ To create new Jekyll based website, use [docker_run_jekyll_new.sh](https://githu
 
 ### Setup Environment Variables
 
-#### Linux
+Setup your environment variables before using the scripts. Verify your environment variables were setup properly.
 
-Setup your environment variables before using the scripts.
+#### Linux
 
 ```
 export JEKYLL_SITE_DIR=$(PWD)/../praqma.com
 export DOCKER_IMAGE_NAME=praqma/jekyll:latest
-```
 
-Verify your environment variables were setup properly.
-
-```
 echo $JEKYLL_SITE_DIR
 echo $DOCKER_IMAGE_NAME
 ```
 
 Optionally, use `export DEBUG=1;` in terminal before using the scripts if commands to be displayed prior to execution.
 
-#### Windows
-
-Setup your environment variables before using the scripts.
+#### Windows Command Prompt
 
 ```
-set JEKYLL_SITE_DIR=%cd%/../praqma.com
+set JEKYLL_SITE_DIR=%CD%\..\praqma.com
 set DOCKER_IMAGE_NAME=praqma/jekyll:latest
+
+echo %JEKYLL_SITE_DIR%
+echo %DOCKER_IMAGE_NAME%
 ```
 
+#### Windows PowerShell
+
 ```
-$env:JEKYLL_SITE_DIR = "$pwd/../jekyll"
+$env:JEKYLL_SITE_DIR = "$PWD\..\praqma.com"
 $env:DOCKER_IMAGE_NAME = "praqma/jekyll:latest"
-```
 
-Verify your environment variables were setup properly.
-
-```
-echo $Env:JEKYLL_SITE_DIR
-echo $Env:DOCKER_IMAGE_NAME
-```
-
-```
 Write-Host $env:JEKYLL_SITE_DIR
 Write-Host $env:DOCKER_IMAGE_NAME
 ```
+
 ### Get the Image
 
 Pull the image from Docker.
@@ -112,16 +103,23 @@ Pull the image from Docker.
 docker pull $DOCKER_IMAGE_NAME
 ```
 
-As an alternative, build the image locally. Build locally (or use [docker_build.sh](https://github.com/Praqma/jekyll/blob/master/docker_build.sh) script):
+As an alternative, build the image locally.
 
 ```
 docker build --tag $DOCKER_IMAGE_NAME .
 ```
+
+Scripts:
+
+* [docker_build.cmd](https://github.com/Praqma/jekyll/blob/master/docker_build.cmd)
+* [docker_build.ps1](https://github.com/Praqma/jekyll/blob/master/docker_build.ps1)
+* [docker_build.sh](https://github.com/Praqma/jekyll/blob/master/docker_build.sh)
+
 ## Getting Started
 
-### Check the Versions
+### Check the Versions of Jekyll and Ruby
 
-Check the version of `jekyll` gem:
+Check the version of `jekyll` and `ruby`.
 
 ```
 docker run \
@@ -131,11 +129,15 @@ docker run \
   jekyll --version
 ```
 
-Use [docker_run_jekyll_version.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_version.sh) script to show versions of Jekyll, Ruby and its gems.
+Scripts:
+
+* [docker_run_jekyll_version.cmd](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_version.cmd)
+* [docker_run_jekyll_version.ps1](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_version.ps1)
+* [docker_run_jekyll_version.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_version.sh)
 
 ### Serve with Jekyll
 
-Mount the website's source directory into the container and serve it using `jekyll` gem or use [docker_run_jekyll_serve.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_serve.sh) script.
+Mount the website's source directory into the container. Serve it using `jekyll` gem.
 
 ```
 docker run \
@@ -151,17 +153,23 @@ docker run \
 
 The website is now being served on http://localhost:4444/.
 
+Scripts:
+
+* [docker_run_jekyll_serve.cmd](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_serve.cmd)
+* [docker_run_jekyll_serve.ps1](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_serve.ps1)
+* [docker_run_jekyll_serve.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_serve.sh)
+
 ### Analyze the Website
 
-The image also analyze the website for duplicated and unused resources. It generates JUnit XML files as output, which can be parsed by other tools.
+Analyze the website for duplicated and unused resources. Generate JUnit XML files as output, which can be parsed by other tools.
 
-Run locally directly from this repository:
+Run analysis locally directly from this repository.
 
 ```
 ruby analyze.rb --source $JEKYLL_SITE_DIR
 ```
 
-Run from Docker container (or use [docker_run_analyze.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_analyze.sh) script):
+Run analysis rom Docker container.
 
 ```
 docker run \
@@ -179,3 +187,9 @@ analyze \
 Both of these commands will produce two reports in the current working directory.
 
 Use `ruby analyze.rb --help` command to view the complete list of available analyze options.
+
+Scripts:
+
+* [docker_run_jekyll_version.cmd](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_version.cmd)
+* [docker_run_jekyll_version.ps1](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_version.ps1)
+* [docker_run_jekyll_version.sh](https://github.com/Praqma/jekyll/blob/master/docker_run_jekyll_version.sh)
