@@ -5,6 +5,9 @@
 [![GitHub Forks](https://img.shields.io/github/forks/praqma/jekyll.svg)](https://github.com/praqma/jekyll/network)
 [![GitHub Issues](https://img.shields.io/github/issues/praqma/jekyll.svg)](https://github.com/praqma/jekyll/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/praqma/jekyll.svg)](https://github.com/praqma/jekyll/pulls)
+
+[![Github Commits Since Latest Release)](https://img.shields.io/github/commits-since/praqma/jekyll/latest.svg)](https://github.com/Praqma/jekyll/commits/master)
+[![GitHub last commit](https://img.shields.io/github/last-commit/praqma/jekyll.svg)](https://github.com/Praqma/jekyll/commits/master)
 [![GitHub Tags](https://img.shields.io/github/tag/praqma/jekyll.svg)](https://github.com/praqma/jekyll/tags)
 [![GitHub Releases](https://img.shields.io/github/release/praqma/jekyll.svg)](https://github.com/praqma/jekyll/releases)
 [![GitHub Contributors](https://img.shields.io/github/contributors/praqma/jekyll.svg)](https://github.com/praqma/jekyll/graphs/contributors)
