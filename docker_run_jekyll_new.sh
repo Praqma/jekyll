@@ -11,7 +11,4 @@ docker run \
   --volume $JEKYLL_SITE_DIR:/website:rw \
   --workdir /website \
   $DOCKER_IMAGE_NAME \
-  bash -c " \
-    echo \"Creating new Jekyll site....\" && \
-    jekyll new . \
-    "
+  jekyll new .
