@@ -1,6 +1,4 @@
-
-
 docker build `
-  --tag $DOCKER_IMAGE_NAME `
+  --tag $env:DOCKER_IMAGE_NAME `
   --file Dockerfile `
   .
