@@ -10,5 +10,5 @@ docker run `
     bundle install && `
     jekyll --version && `
     ruby --version && `
-    jekyll serve --watch --host 0.0.0.0 `
+    jekyll serve --watch --host=0.0.0.0 --incremental --unpublished --future
     "
