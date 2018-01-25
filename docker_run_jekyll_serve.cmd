@@ -1,5 +1,17 @@
 @echo off
 
+if "%JEKYLL_SITE_DIR%"=="" (
+  echo %%JEKYLL_SITE_DIR%% was not defined.
+  set JEKYLL_SITE_DIR=%CD%\..\praqma.com
+)
+echo %%JEKYLL_SITE_DIR%%: %JEKYLL_SITE_DIR%
+
+if "%DOCKER_IMAGE_NAME%"=="" (
+  echo %%DOCKER_IMAGE_NAME%% was not defined.
+  set DOCKER_IMAGE_NAME=praqma/jekyll:latest
+)
+echo %%DOCKER_IMAGE_NAME%%: %DOCKER_IMAGE_NAME%
+
 docker run ^
   --interactive ^
   --rm ^
