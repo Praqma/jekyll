@@ -4,6 +4,26 @@
 # https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
 [ "$DEBUG" == 'true' ] && set -x
 
+echo ""
+
+if [[ -z "${JEKYLL_SITE_DIR}" ]]; then
+  echo "\$JEKYLL_SITE_DIR was not defined."
+  JEKYLL_SITE_DIR="${PWD}/../praqma.com"
+else
+  JEKYLL_SITE_DIR="${JEKYLL_SITE_DIR}"
+fi
+echo "\$JEKYLL_SITE_DIR: ${JEKYLL_SITE_DIR}"
+
+if [[ -z "${DOCKER_IMAGE_NAME}" ]]; then
+  echo "\$DOCKER_IMAGE_NAME was not defined."
+  DOCKER_IMAGE_NAME="praqma/jekyll:latest"
+else
+  DOCKER_IMAGE_NAME="${DOCKER_IMAGE_NAME}"
+fi
+echo "\$DOCKER_IMAGE_NAME: ${DOCKER_IMAGE_NAME}"
+
+echo ""
+
 docker run \
   --rm \
   --tty \
