@@ -23,13 +23,12 @@
 [![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/praqma/jekyll.svg)](https://github.com/Praqma/jekyll)
 [![GitHub Repository Size in Bytes](https://img.shields.io/github/repo-size/praqma/jekyll.svg)](https://github.com/Praqma/jekyll)
 
+[![](https://images.microbadger.com/badges/image/praqma/jekyll.svg)](https://microbadger.com/images/praqma/jekyll)
+[![](https://images.microbadger.com/badges/version/praqma/jekyll.svg)](https://microbadger.com/images/praqma/jekyll)
+
 Docker built Jekyll image for building Praqma's website.
 
-See [jekyll](https://github.com/praqma/jekyll) repository on GitHub.
-
-See [jekyll](https://hub.docker.com/r/praqma/jekyll/) repository on Docker Hub.
-
-See [jekyll](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/) repository on Docker Cloud.
+See Docker [Hub](https://hub.docker.com/r/praqma/jekyll/) or Docker [Cloud](https://cloud.docker.com/app/praqma/repository/docker/praqma/jekyll/) repository that automatically builds from the GitHub [repository](https://github.com/praqma/jekyll).
 
 ## History
 
