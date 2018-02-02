@@ -93,7 +93,7 @@ def scan_usage(resources, dir)
 
 	#The text files to look for the references
 	files_to_scan = []
-	extensions = ['.html','.md']
+	extensions = ['.css','.html','.md']
 	extensions.each do |ext|
 		files_to_scan += Dir.glob("#{dir}/**/*#{ext}", File::FNM_DOTMATCH)
 	end
