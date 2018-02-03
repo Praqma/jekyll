@@ -44,6 +44,10 @@ This repository aims to provide a Docker image that resembles GitHub Pages. We e
 
 Since then, we have moved our website to the cloud....
 
+## Contribution
+
+See [CONTRIBUTION.md](https://github.com/praqma/jekyll/blob/master/CONTRIBUTION.md) file.
+
 ## Prerequisites
 
 ### Setup Environment Variables
