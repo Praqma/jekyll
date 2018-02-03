@@ -18,13 +18,13 @@
 [![Docker Automated Build](https://img.shields.io/docker/automated/praqma/jekyll.svg)](https://hub.docker.com/r/praqma/jekyll/builds/)
 [![Docker Build Status](https://img.shields.io/docker/build/praqma/jekyll.svg)](https://hub.docker.com/r/praqma/jekyll/builds/)
 
+[![](https://images.microbadger.com/badges/image/praqma/jekyll.svg)](https://microbadger.com/images/praqma/jekyll)
+[![](https://images.microbadger.com/badges/version/praqma/jekyll.svg)](https://microbadger.com/images/praqma/jekyll)
+
 [![GitHub Release Date](https://img.shields.io/github/release-date/praqma/jekyll.svg)](https://github.com/Praqma/jekyll/releases)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/praqma/jekyll.svg)](https://github.com/Praqma/jekyll/commits/master)
 [![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/praqma/jekyll.svg)](https://github.com/Praqma/jekyll)
 [![GitHub Repository Size in Bytes](https://img.shields.io/github/repo-size/praqma/jekyll.svg)](https://github.com/Praqma/jekyll)
-
-[![](https://images.microbadger.com/badges/image/praqma/jekyll.svg)](https://microbadger.com/images/praqma/jekyll)
-[![](https://images.microbadger.com/badges/version/praqma/jekyll.svg)](https://microbadger.com/images/praqma/jekyll)
 
 Docker built Jekyll image for building Praqma's website.
 
