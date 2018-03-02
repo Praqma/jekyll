@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-
 require 'digest/md5'
 require 'liquid'
 require 'optparse'
@@ -9,12 +8,13 @@ options = {
 	:template_usage => File.exist?('/.dockerenv') ? '/opt/static-analysis/template_report_usage_junit.xml' : 'template_report_duplication_junit.xml',
 	:template_duplication => File.exist?('/.dockerenv') ? '/opt/static-analysis/template_report_duplication_junit.xml' : 'template_report_duplication_junit.xml',
 	:destination => '.',
-	:source => '.'
+	:source => '.',
+	:debug => false
 }
 
 def analyze(options)
 	#Obtain a list of files to analyze. The resources we want to check for duplication
-	a_files = list_files(options[:source])
+	a_files = list_files(options)
 
 	#Scan for duplicates. Select those that are duplicats
 	duplicates = scan_duplicates(a_files).select { |k,v| v.length > 1 }
@@ -47,9 +47,9 @@ def check_extension(file, ext)
 		match
 end
 
-def list_files(dir)
+def list_files(options)
 	hash = {}
-	Dir.glob("#{dir}/**/*", File::FNM_DOTMATCH).each do |filename|
+	Dir.glob("#{options[:source]}/**/*", File::FNM_DOTMATCH).each do |filename|
 
 	  next if File.directory?(filename)
 	  should_include = check_extension(filename, ['.jpg', '.png', '.jpeg', '.pdf', '.gif'])
@@ -62,7 +62,9 @@ def list_files(dir)
 	  else
 	    hash[key] = [filename]
 	  end
-	  puts "Scanned #{filename}"
+	  if options[:debug] 
+	  	puts "Scanned #{filename}"
+		end
 	end
 	hash
 end
@@ -137,6 +139,10 @@ OptionParser.new do |opts|
 
 	opts.on("-sSOURCE", "--source=SOURCE", "Source folder") do |s|
 		options[:source] = s
+	end
+
+	opts.on("-d","--debug", "Prints more information") do |d|
+		options[:debug] = d
 	end
 
 	opts.on("-uUNUSED","--unused=UNUSED", "Template file for the unused resource scanner") do |u|
